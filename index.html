@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Digital Pâtisserie | Waffle Dessert</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#6a4f4a",
+                        "inverse-primary": "#e3beb8",
+                        "on-background": "#1d1b16",
+                        "surface-container-high": "#ede7df",
+                        "inverse-surface": "#32302a",
+                        "on-primary-fixed": "#2b1613",
+                        "on-primary-fixed-variant": "#5b403c",
+                        "inverse-on-surface": "#f6f0e7",
+                        "tertiary-fixed": "#ffdf9e",
+                        "surface-dim": "#dfd9d1",
+                        "tertiary": "#785900",
+                        "on-surface-variant": "#4f4632",
+                        "tertiary-fixed-dim": "#fabd00",
+                        "on-surface": "#1d1b16",
+                        "primary": "#745853",
+                        "surface-variant": "#e7e2d9",
+                        "secondary": "#7a5649",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#e8c2bc",
+                        "secondary-container": "#fdcdbc",
+                        "surface-tint": "#745853",
+                        "surface-container": "#f3ede4",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdbcf",
+                        "surface-container-highest": "#e7e2d9",
+                        "tertiary-container": "#ffc107",
+                        "secondary-fixed-dim": "#ebbcac",
+                        "on-secondary-fixed": "#2e150b",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "on-secondary": "#ffffff",
+                        "outline": "#827660",
+                        "primary-fixed": "#ffdad4",
+                        "outline-variant": "#d4c5ab",
+                        "error-container": "#ffdad6",
+                        "background": "#fff9f0",
+                        "surface": "#fff9f0",
+                        "surface-bright": "#fff9f0",
+                        "on-tertiary-container": "#6d5100",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#795548",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#e3beb8",
+                        "surface-container-low": "#f9f3ea",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-secondary-fixed-variant": "#603f33"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    },
+                    "animation": {
+                        "fade-in-up": "fade-in-up 0.8s ease-out forwards",
+                        "reveal": "reveal 1s cubic-bezier(0.4, 0, 0.2, 1) forwards"
+                    },
+                    "keyframes": {
+                        "fade-in-up": {
+                            "0%": { opacity: "0", transform: "translateY(20px)" },
+                            "100%": { opacity: "1", transform: "translateY(0)" }
+                        },
+                        "reveal": {
+                            "0%": { opacity: "0", transform: "scale(0.95)" },
+                            "100%": { opacity: "1", transform: "scale(1)" }
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .editorial-shadow {
+            box-shadow: 0px 12px 32px rgba(29, 27, 22, 0.06);
+        }
+        .glass-header {
+            background: rgba(255, 249, 240, 0.7);
+            backdrop-filter: blur(16px);
+        }
+        .menu-item-row:hover {
+            background-color: rgba(116, 88, 83, 0.04);
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+        }
+        .reveal-on-scroll.visible {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        .btn-hover {
+            transition: all 0.3s ease;
+        }
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px -5px rgba(116, 88, 83, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-tertiary-container selection:text-on-tertiary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-header shadow-[0px_12px_32px_rgba(29,27,22,0.06)]">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black text-[#745853] dark:text-[#E8C2BC] font-['Plus_Jakarta_Sans'] tracking-tight">
+                The Digital Pâtisserie
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#FFC107] font-bold border-b-2 border-[#FFC107] pb-1 hover:scale-105 transition-all duration-300" href="#home">Home</a>
+<a class="text-[#745853] dark:text-[#E8C2BC] font-medium hover:scale-105 hover:text-[#FFC107] transition-all duration-300" href="#about">About</a>
+<a class="text-[#745853] dark:text-[#E8C2BC] font-medium hover:scale-105 hover:text-[#FFC107] transition-all duration-300" href="#menu">Menu</a>
+<a class="text-[#745853] dark:text-[#E8C2BC] font-medium hover:scale-105 hover:text-[#FFC107] transition-all duration-300" href="#locations">Locations</a>
+<a class="text-[#745853] dark:text-[#E8C2BC] font-medium hover:scale-105 hover:text-[#FFC107] transition-all duration-300" href="#reviews">Reviews</a>
+</div>
+<button class="bg-tertiary-container text-on-tertiary-container px-6 py-2.5 rounded-full font-bold btn-hover cursor-pointer">
+                Order Now
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="home">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="cinematic close-up of golden brown belgian waffles drizzled with thick chocolate sauce and maple syrup with warm side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCOlOmqLohUDqfxwZbix0MHCRE2vPs_QH741DNZKsLsuMAXUSjVsmikPxRoTDrgpB6E64mLrWv9OKf_wb9bnEGO_iYvXvw-04prfxX8_dy3l76XfrENEdWaXxeezvVUMN_7jXiABkYscEyDoQhN7JoxWC2YBk9o0QzhrXOK0Ie0qhoKdjNJLhGGHoas6VQRxH9gqX2d0Gcxosdd3Dm3sYsWqZJ7_1YQD0fIjznDi_7kydOY_9A6iVweonqJHw4AhUC0wihRZABwlE"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-screen-2xl mx-auto px-8 w-full animate-fade-in-up">
+<div class="max-w-2xl">
+<span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-bold text-sm mb-6">AUTHENTIC BELGIAN RECIPE</span>
+<h1 class="font-headline text-7xl md:text-8xl font-black text-primary leading-[0.9] tracking-tighter mb-8">
+                    Waffle <br/>Dessert
+                </h1>
+<p class="text-2xl text-on-surface-variant font-medium mb-12 max-w-lg leading-relaxed">
+                    Freshly Made, Crispy, and Delicious. Experience the crunch that Chennai fell in love with.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-tertiary-container text-on-tertiary-container px-10 py-5 rounded-full font-bold text-lg btn-hover shadow-xl">
+                        Order Now
+                    </button>
+<button class="bg-surface-container-lowest text-primary px-10 py-5 rounded-full font-bold text-lg btn-hover border border-outline-variant/20">
+                        View Menu
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Story Section -->
+<section class="py-32 bg-surface reveal-on-scroll" id="about">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="flex flex-col md:flex-row gap-20 items-center">
+<div class="flex-1 relative">
+<div class="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="vintage aesthetic waffle preparation with powdered sugar dusting and fresh berries in a rustic kitchen setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsvwDYP1WBTgM7s5aK3vvnhw1W0uMOmouPadGisXDN1H8tN1X91GEeuNW0nlpBwWsdQ2UWHsMN4yGTI-C0kVgn2qsM0m7RTzrUAhwgyqVKkctDtFVKc-sBKQ6usKGR7dvTgmHzhzl3_e3LJjaY7ONbgor_yk5QWDW1r6jeMopXqnOGiFTRlMxnPXvYZLvvohgRFHMD_gjfNWlD1viM4K4__Hit41s72JdYezi-6pWgTwpIdR7YTdGJ90MW68YkL3bSiJ3Lb-3hnMk"/>
+</div>
+<div class="absolute -bottom-10 -right-10 w-64 aspect-square rounded-xl overflow-hidden border-8 border-surface shadow-2xl rotate-[5deg] hidden lg:block hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="close up of melting butter on a hot waffle grid with golden honey dripping from the edges" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCewyzUQ72fMbeeasKnZWvgqi7PLTBP97S42U1EvjUpvqX7ptKNQncXQOWcQnvwhQRatAVjuoHF9TkeetUiuWNbJGZ67f5u0FQ4bgM6ZjZBRt752srqjVu_-q1u5dkrzF5YCniIarLa295Sog5y_tUttYquNUgovW998jDpCww_zGpOP8Ldpfv0N1MgCqspnVl6ZFzsbSCJNtYYsu4CGd8FWLkdoccQKAlwmDL0ogl2fws0kJCAGTtLba8gYQFn8KfM4TrfHFs7tVE"/>
+</div>
+</div>
+<div class="flex-1 space-y-8">
+<div class="flex items-center gap-4 text-tertiary font-bold tracking-widest uppercase text-sm">
+<div class="h-[1px] w-12 bg-tertiary"></div>
+                        Our Story
+                    </div>
+<h2 class="font-headline text-5xl font-black text-primary leading-tight">Crafting the Perfect Crunch in Chennai</h2>
+<div class="space-y-6 text-lg text-on-surface-variant leading-relaxed">
+<p>Originating from the pursuit of the most authentic Waffle Dessert experience, our journey began with a simple mission: to create a dessert that brings together the warmth of a freshly baked waffle with the indulgence of premium toppings.</p>
+<p>In Chennai, we've become more than just a waffle shop. We are a destination for families, friends, and dessert connoisseurs who value quality, freshness, and that unmistakable crispy-yet-soft texture that defines a true artisanal treat.</p>
+</div>
+<div class="pt-6 grid grid-cols-2 gap-8">
+<div class="hover-lift p-4 bg-surface-container-low rounded-xl">
+<div class="text-4xl font-black text-tertiary mb-1">100%</div>
+<div class="text-sm font-bold text-on-surface-variant uppercase tracking-wider">Vegetarian</div>
+</div>
+<div class="hover-lift p-4 bg-surface-container-low rounded-xl">
+<div class="text-4xl font-black text-tertiary mb-1">20+</div>
+<div class="text-sm font-bold text-on-surface-variant uppercase tracking-wider">Signature Flavors</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Expanded Menu Section -->
+<section class="py-32 bg-surface-container-low reveal-on-scroll" id="menu">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="mb-20 text-center space-y-4">
+<h2 class="font-headline text-6xl font-black text-primary">The Menu Canvas</h2>
+<p class="text-on-surface-variant text-xl">Explore our detailed selection of artisanal treats.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Signature Delight Waffles -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 shadow-sm hover-lift">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-tertiary text-3xl">star</span>
+<h3 class="font-headline text-3xl font-extrabold text-primary">Signature Delight Waffles</h3>
+</div>
+<div class="grid md:grid-cols-1 gap-6">
+<div class="flex justify-between items-start p-4 rounded-lg menu-item-row transition-all">
+<div class="flex gap-6 items-center">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Chocolate Heaven" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqgWS_337WFxiaBuq96J-mEP3DcTwPOlu_hO00V3O3JHE6yZAxjAcQRz0XNhvC2JMoyd7sJ-SajAK7PI-IMmFHpBAC5ePuzvOk6JxjuZNaMIFBHcDhCEjsXwJsluCOuhjA9ioYYaL6G1L0_9aPTD03LsUFeW6sbfQQn60RPAeq6JlPL6KATUy6S1Vipj53IJZKTLQmfiBoCxQ8eRrxVLuZtZqCLmV9Lv2Qgx5uAxradPxx5-jCGhCxSF59nitL50DaY4u3kHWR0nI"/>
+</div>
+<div>
+<h4 class="text-xl font-bold text-on-surface">Chocolate Heaven</h4>
+<p class="text-on-surface-variant text-sm mt-1">Dark base, Milk Chocolate, Oreo, Nuts, Kitkat, Chocolate Icecream</p>
+</div>
+</div>
+<span class="text-xl font-black text-primary whitespace-nowrap ml-4">₹150</span>
+</div>
+<div class="flex justify-between items-start p-4 rounded-lg menu-item-row transition-all">
+<div class="flex gap-6 items-center">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Yummy White" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsvwDYP1WBTgM7s5aK3vvnhw1W0uMOmouPadGisXDN1H8tN1X91GEeuNW0nlpBwWsdQ2UWHsMN4yGTI-C0kVgn2qsM0m7RTzrUAhwgyqVKkctDtFVKc-sBKQ6usKGR7dvTgmHzhzl3_e3LJjaY7ONbgor_yk5QWDW1r6jeMopXqnOGiFTRlMxnPXvYZLvvohgRFHMD_gjfNWlD1viM4K4__Hit41s72JdYezi-6pWgTwpIdR7YTdGJ90MW68YkL3bSiJ3Lb-3hnMk"/>
+</div>
+<div>
+<h4 class="text-xl font-bold text-on-surface">Yummy White</h4>
+<p class="text-on-surface-variant text-sm mt-1">White base, White Chocolate, White chocochips, Nuts, Vanilla Icecream, Oreo</p>
+</div>
+</div>
+<span class="text-xl font-black text-primary whitespace-nowrap ml-4">₹160</span>
+</div>
+<div class="flex justify-between items-start p-4 rounded-lg menu-item-row transition-all">
+<div class="flex gap-6 items-center">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Red Velvet Treat" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZNQb5FZMUcADhKiYyhCrA-usBU4P6szL7MKDlDz_zRPdjkF_2pcNclJO7VUmmefD7WWyFMDReuV6oBQZivlydPzrNizgOVSY-NQSLxluRoYEtHd_q21bxI3Dt1HOJGl6VyGcVLjo6pcrjkjzB9bHDhU1qouoV3xHzUiVLUcltT6bmD3RWiH1Y-nXO-yIBPF45bbKNrWJEkTcN0kzQyzxAZ3HrAF4xujoL5n1c4HETTd6tETTu38C_GdaxkIGGZ4B3XB-OOjFUz9c"/>
+</div>
+<div>
+<h4 class="text-xl font-bold text-on-surface">Red Velvet Treat</h4>
+<p class="text-on-surface-variant text-sm mt-1">Red Base, Oreo, Nuts, Kitkat, Banana, Strawberry Icecream</p>
+</div>
+</div>
+<span class="text-xl font-black text-primary whitespace-nowrap ml-4">₹170</span>
+</div>
+</div>
+</div>
+<!-- Add ONs -->
+<div class="lg:col-span-4 bg-secondary-container rounded-xl p-8 flex flex-col hover-lift">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-on-secondary-container text-3xl">add_circle</span>
+<h3 class="font-headline text-3xl font-extrabold text-on-secondary-container">Add ONs</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex justify-between items-center py-2 border-b border-on-secondary-container/10">
+<span class="font-bold text-on-secondary-container">Springles</span>
+<span class="font-black text-on-secondary-container">₹10</span>
+</li>
+<li class="flex justify-between items-center py-2 border-b border-on-secondary-container/10">
+<span class="font-bold text-on-secondary-container">Gems</span>
+<span class="font-black text-on-secondary-container">₹10</span>
+</li>
+<li class="flex justify-between items-center py-2 border-b border-on-secondary-container/10">
+<span class="font-bold text-on-secondary-container">Oreo / Kitkat / Nutella / Banana</span>
+<span class="font-black text-on-secondary-container">₹20</span>
+</li>
+<li class="flex justify-between items-center py-2 border-b border-on-secondary-container/10">
+<span class="font-bold text-on-secondary-container">Strawberry</span>
+<span class="font-black text-on-secondary-container">₹20</span>
+</li>
+<li class="flex justify-between items-center py-2">
+<span class="font-bold text-on-secondary-container">Ice cream / Extra Nuts</span>
+<span class="font-black text-on-secondary-container">₹30</span>
+</li>
+</ul>
+<div class="mt-auto pt-8">
+<p class="text-sm font-medium italic text-on-secondary-container/80">"Customize your crunch just the way you like it."</p>
+</div>
+</div>
+<!-- Shakes & Mojitos -->
+<div class="lg:col-span-6 bg-surface-container-lowest rounded-xl p-8 shadow-sm hover-lift">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-tertiary text-3xl">local_cafe</span>
+<h3 class="font-headline text-3xl font-extrabold text-primary">Shakes &amp; Mojitos</h3>
+</div>
+<div class="space-y-8">
+<div>
+<h4 class="font-bold text-tertiary uppercase tracking-widest text-sm mb-4">Shakes of Chocolate</h4>
+<div class="grid grid-cols-2 gap-x-8 gap-y-3">
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Kitkat Shake</span><span class="font-bold">₹120</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Oreo Shake</span><span class="font-bold">₹120</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Chocolate Shake</span><span class="font-bold">₹130</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Nutella Shake</span><span class="font-bold">₹130</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Belgium Shake</span><span class="font-bold">₹140</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Oreo Kitkat Shake</span><span class="font-bold">₹140</span></div>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-tertiary uppercase tracking-widest text-sm mb-4">Candy Crush Shakes</h4>
+<div class="grid grid-cols-2 gap-x-8 gap-y-3">
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Vanilla</span><span class="font-bold">₹100</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Mango</span><span class="font-bold">₹130</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Berry Mix</span><span class="font-bold">₹120</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Banana</span><span class="font-bold">₹130</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Pista / Badam</span><span class="font-bold">₹140</span></div>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-tertiary uppercase tracking-widest text-sm mb-4">Mojitos</h4>
+<div class="grid grid-cols-2 gap-x-8 gap-y-3">
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Classic Flavors</span><span class="font-bold">₹90</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Bubble Gum</span><span class="font-bold">₹100</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-1"><span>Green Apple</span><span class="font-bold">₹120</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Ice Cream & Juice -->
+<div class="lg:col-span-6 space-y-8">
+<div class="bg-primary text-on-primary rounded-xl p-8 hover-lift">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-secondary-container text-3xl">icecream</span>
+<h3 class="font-headline text-3xl font-extrabold">Ice Cream</h3>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between"><span>Vanilla</span><span class="font-bold">₹60</span></div>
+<div class="flex justify-between"><span>Mango / Strawberry</span><span class="font-bold">₹70</span></div>
+<div class="flex justify-between"><span>Chocolate</span><span class="font-bold">₹90</span></div>
+<div class="flex justify-between"><span>Butter Scotch</span><span class="font-bold">₹100</span></div>
+<div class="flex justify-between font-bold text-secondary-container pt-2 border-t border-white/20"><span>Mixed (M, S, V)</span><span>₹100</span></div>
+</div>
+</div>
+<div class="bg-surface-container-highest rounded-xl p-8 border border-outline-variant/20 hover-lift">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-tertiary text-3xl">local_drink</span>
+<h3 class="font-headline text-3xl font-extrabold text-primary">Fresh Juice</h3>
+</div>
+<div class="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
+<div class="flex justify-between"><span>Lemon</span><span class="font-bold">₹30</span></div>
+<div class="flex justify-between"><span>Mint/Ginger</span><span class="font-bold">₹40</span></div>
+<div class="flex justify-between"><span>Melon/Banana</span><span class="font-bold">₹50</span></div>
+<div class="flex justify-between"><span>Pineapple/Grape</span><span class="font-bold">₹60</span></div>
+<div class="flex justify-between"><span>Apple/Orange</span><span class="font-bold">₹70</span></div>
+<div class="flex justify-between"><span>Mango/Mixed</span><span class="font-bold">₹80</span></div>
+<div class="flex justify-between"><span>Pomegranate/ABC</span><span class="font-bold">₹90</span></div>
+<div class="flex justify-between"><span>Special Combos</span><span class="font-bold">₹100</span></div>
+</div>
+</div>
+</div>
+<!-- Sandwiches & Burgers -->
+<div class="lg:col-span-12 bg-surface-container-lowest rounded-xl p-8 shadow-sm hover-lift">
+<div class="flex items-center gap-3 mb-10">
+<span class="material-symbols-outlined text-tertiary text-4xl">lunch_dining</span>
+<h3 class="font-headline text-3xl font-extrabold text-primary">Sandwiches &amp; Burgers</h3>
+</div>
+<div class="grid md:grid-cols-2 gap-16">
+<div>
+<h4 class="font-headline text-2xl font-bold text-primary mb-6 flex items-center gap-2">
+<span class="w-1.5 h-6 bg-tertiary rounded-full"></span> Sandwiches
+                            </h4>
+<ul class="space-y-4">
+<li class="flex justify-between p-3 rounded-lg menu-item-row"><span>Veg Classic</span><span class="font-bold">₹60</span></li>
+<li class="flex justify-between p-3 rounded-lg menu-item-row"><span>Veg Cheese</span><span class="font-bold">₹65</span></li>
+<li class="flex justify-between p-3 rounded-lg menu-item-row"><span>Paneer Toast</span><span class="font-bold">₹70</span></li>
+<li class="flex justify-between p-3 rounded-lg menu-item-row"><span>Paneer Cheese / Choco</span><span class="font-bold">₹80</span></li>
+<li class="flex justify-between p-3 rounded-lg menu-item-row"><span>Chicken Toast</span><span class="font-bold">₹90</span></li>
+<li class="flex justify-between p-3 rounded-lg menu-item-row"><span>Chicken Cheese Toast</span><span class="font-bold">₹100</span></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline text-2xl font-bold text-primary mb-6 flex items-center gap-2">
+<span class="w-1.5 h-6 bg-tertiary rounded-full"></span> Burgers
+                            </h4>
+<ul class="space-y-4">
+<li class="flex justify-between p-3 rounded-lg menu-item-row"><span>Veg Burger</span><span class="font-bold">₹60</span></li>
+<li class="flex justify-between p-3 rounded-lg menu-item-row"><span>Veg Loaded</span><span class="font-bold">₹70</span></li>
+<li class="flex justify-between p-3 rounded-lg menu-item-row"><span>Paneer Burger</span><span class="font-bold">₹90</span></li>
+<li class="flex justify-between p-3 rounded-lg menu-item-row"><span>Paneer Loaded</span><span class="font-bold">₹100</span></li>
+<li class="flex justify-between p-3 rounded-lg menu-item-row"><span>Chicken Burger</span><span class="font-bold">₹110</span></li>
+<li class="flex justify-between p-3 rounded-lg menu-item-row"><span>Chicken Loaded</span><span class="font-bold">₹130</span></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Fried Bites -->
+<div class="lg:col-span-12 bg-surface-container-highest rounded-xl p-8 hover-lift">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl">restaurant</span>
+<h3 class="font-headline text-3xl font-extrabold text-primary">Fried Bites</h3>
+</div>
+<div class="grid md:grid-cols-2 gap-12">
+<div class="space-y-2">
+<span class="text-xs font-bold text-tertiary uppercase tracking-widest px-3 py-1 bg-surface-container-low rounded-full">Vegetarian Selects</span>
+<div class="grid gap-3 pt-4">
+<div class="flex justify-between border-b border-outline-variant/30 pb-2"><span>Fries / Nuggets / Potato Cheese Shots</span><span class="font-bold">₹70</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-2"><span>Peri Peri Fries</span><span class="font-bold">₹80</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-2"><span>Crinkle Fries / Cheese Corn Triangle</span><span class="font-bold">₹90</span></div>
+</div>
+</div>
+<div class="space-y-2">
+<span class="text-xs font-bold text-primary uppercase tracking-widest px-3 py-1 bg-primary-container rounded-full">Non-Veg Favorites</span>
+<div class="grid gap-3 pt-4">
+<div class="flex justify-between border-b border-outline-variant/30 pb-2"><span>Chicken Poppers</span><span class="font-bold">₹60</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-2"><span>Chicken Nuggets</span><span class="font-bold">₹70</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-2"><span>Chicken Finger / Popcorn</span><span class="font-bold">₹100</span></div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-2"><span>Coated Chicken Wings</span><span class="font-bold">₹120</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Takeaway CTA -->
+<div class="mt-16 flex flex-col md:flex-row items-center justify-between bg-tertiary-container p-10 rounded-xl hover-lift">
+<div class="mb-8 md:mb-0">
+<h3 class="text-3xl font-black text-on-tertiary-container mb-2">Bring the Crunch Home</h3>
+<p class="text-on-tertiary-container/80 text-lg">Waffle boxes and party packs available for pre-order.</p>
+</div>
+<button class="px-10 py-5 bg-on-tertiary-container text-tertiary-container font-black rounded-full btn-hover text-lg shadow-lg">
+                    Order Takeaway Pack
+                </button>
+</div>
+</div>
+</section>
+<!-- Locations & Hours -->
+<section class="py-32 bg-surface reveal-on-scroll" id="locations">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<h2 class="font-headline text-5xl font-black text-primary mb-4">Visit Our Kitchens</h2>
+<p class="text-xl text-on-surface-variant">Find the nearest waffle spot in Chennai.</p>
+</div>
+<div class="bg-surface-container p-6 rounded-lg flex items-center gap-6 hover-lift">
+<div class="text-right">
+<div class="text-sm font-bold text-on-surface-variant uppercase tracking-widest">Opening Hours</div>
+<div class="text-lg font-black text-primary">Mon–Sun: 10AM – 11PM</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-4xl">schedule</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Store 1 -->
+<div class="group bg-surface-container-low rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover-lift">
+<div class="h-64 bg-surface-dim overflow-hidden relative">
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-location="Triplicane, Chennai" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXv6MYeaFAXfhTGJwihvYvk2D0VbpermRSfEHzdX6aQ8GoAkGk3bliS5NH3Kj1E7zYiJLOSPLdlybadwr7zpqDxSPi83FJ8MCMFy2R37ITNG-FDX5h23Zj6QTViW1rL9BwHqwZ8EBvw57sLk30l0g83yq4Vo5Ax1OsVzrpKKq9U5BtBLkdbFhJ7fB8xvmMkYvcJwGUNociUTIe2wh3x3oA2J0QBPc4D6QfZgySBAgGuxCG2bvpnRh5O5eGO7scQ-V-bp8F_myC6J0"/>
+<div class="absolute top-6 right-6 bg-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-black text-on-surface">4.7</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-black text-primary mb-4">Triplicane, Anna Salai</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed">60 Ground Floor, Walljah Road, Triplicane, Anna Salai, Chennai – 600002</p>
+<div class="flex items-center gap-2 text-primary font-bold mb-8">
+<span class="material-symbols-outlined">call</span>
+<span>+91 86570 34517</span>
+</div>
+<button class="w-full py-4 bg-surface-container-highest text-primary font-bold rounded-full btn-hover flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">directions</span> Get Directions
+                        </button>
+</div>
+</div>
+<!-- Store 2 -->
+<div class="group bg-surface-container-low rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover-lift">
+<div class="h-64 bg-surface-dim overflow-hidden relative">
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-location="Vyasarpadi, Chennai" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWJZ3GoxGZIYO8HP1cOXD2y0V2U06cUyJpSE1rg2t4uNJz4e_xBVwwCQ-I35ZwuByhCu3Bt3B0IkhOGwMm8cJ712HbK4r5leyhWqwmvfqOddrPhOBg02nR2F47PnLhs_SJIllTmIhAzL2DXfJYphxjdMQCZBWgGsJqgIj2wanmu953LHohjZO2c-3WSNDliTbBn_rG0jiWdgjNdoHhqC9_L7aqXDH6qKFs0r0f1HNDLzJ-j7wYuFdv_DW_3yUs_3F1dk5_9mC-cVI"/>
+<div class="absolute top-6 right-6 bg-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-black text-on-surface">5.0</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-black text-primary mb-4">MKB Nagar, Vyasarpadi</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed">356-C, MKB Nagar West Ave, Mahakavi Bharathi Nagar, Vyasarpadi, Chennai – 600039</p>
+<div class="flex items-center gap-2 text-primary font-bold mb-8">
+<span class="material-symbols-outlined">call</span>
+<span>+91 83558 43387</span>
+</div>
+<button class="w-full py-4 bg-surface-container-highest text-primary font-bold rounded-full btn-hover flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">directions</span> Get Directions
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="py-32 bg-surface-container-low overflow-hidden reveal-on-scroll" id="reviews">
+<div class="max-w-screen-2xl mx-auto px-8 relative">
+<div class="absolute top-0 right-0 -translate-y-1/2 opacity-5 pointer-events-none select-none">
+<span class="font-headline text-[20rem] font-black leading-none">"</span>
+</div>
+<div class="mb-16">
+<h2 class="font-headline text-5xl font-black text-primary mb-4">Sweet Words</h2>
+<p class="text-xl text-on-surface-variant">What our waffle community says.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Review 1 -->
+<div class="bg-surface-container-lowest p-10 rounded-xl editorial-shadow relative hover-lift">
+<div class="flex gap-1 text-tertiary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="text-2xl font-medium text-primary italic leading-relaxed mb-8">"Very tasty and affordable price"</blockquote>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-black">R</div>
+<div>
+<div class="font-bold text-on-surface">Rahul S.</div>
+<div class="text-sm text-on-surface-variant">Local Guide</div>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container-lowest p-10 rounded-xl editorial-shadow relative md:mt-12 hover-lift">
+<div class="flex gap-1 text-tertiary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="text-2xl font-medium text-primary italic leading-relaxed mb-8">"Nice place and yummy waffles"</blockquote>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-black">A</div>
+<div>
+<div class="font-bold text-on-surface">Ananya K.</div>
+<div class="text-sm text-on-surface-variant">Verified Foodie</div>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-surface-container-lowest p-10 rounded-xl editorial-shadow relative hover-lift">
+<div class="flex gap-1 text-tertiary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="text-2xl font-medium text-primary italic leading-relaxed mb-8">"Wow very nice taste and super 👌"</blockquote>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container font-black">K</div>
+<div>
+<div class="font-bold text-on-surface">Karthik M.</div>
+<div class="text-sm text-on-surface-variant">Waffle Enthusiast</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full rounded-t-[3rem] mt-20 bg-[#745853] dark:bg-[#1D1B16] text-[#FFF9F0] dark:text-[#E8C2BC] font-['Be_Vietnam_Pro'] text-sm reveal-on-scroll">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 gap-8 text-center md:text-left max-w-screen-2xl mx-auto">
+<div class="space-y-4">
+<div class="text-xl font-bold text-[#FFC107]">Waffle Dessert</div>
+<p class="max-w-xs opacity-80">Serving smiles one crispy waffle at a time across Chennai. Premium ingredients, Belgian tradition.</p>
+</div>
+<div class="flex flex-col gap-4">
+<div class="font-bold text-lg text-[#FFC107] mb-2">Connect</div>
+<div class="flex gap-6 justify-center md:justify-start">
+<a class="opacity-90 hover:opacity-100 hover:text-white transition-colors hover:scale-110" href="#">Instagram</a>
+<a class="opacity-90 hover:opacity-100 hover:text-white transition-colors hover:scale-110" href="#">Facebook</a>
+<a class="opacity-90 hover:opacity-100 hover:text-white transition-colors hover:scale-110" href="#">Swiggy</a>
+<a class="opacity-90 hover:opacity-100 hover:text-white transition-colors hover:scale-110" href="#">Zomato</a>
+</div>
+</div>
+<div class="space-y-4">
+<div class="text-on-secondary opacity-70">© 2024 The Digital Pâtisserie. All rights reserved.</div>
+<div class="flex justify-center md:justify-end gap-4 text-xs font-bold uppercase tracking-widest text-[#FFC107]">
+<span class="hover:text-white cursor-pointer transition-colors">Terms</span>
+<span class="hover:text-white cursor-pointer transition-colors">Privacy</span>
+<span class="hover:text-white cursor-pointer transition-colors">Sitemap</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body></html>
